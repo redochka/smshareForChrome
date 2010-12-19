@@ -1,0 +1,45 @@
+body {
+	width: 100%; /*surcharge*/
+}
+
+/*surcharge*/
+.myFieldSet {
+	background-color: transparent;
+	font-size: 12px;
+}
+
+.myFieldSet input[type=text],.myFieldSet textarea,.myFieldSet input[type=password]{
+	width: 50%;
+}
+
+
+
+.optionsContainer {
+	margin-top: 60px;
+	margin-left: 35px;
+	color: 666;
+	float: left;
+	width: 600px;
+}
+
+iframe {
+	float: right;
+	margin-top: 75px;
+}
+
+#footer {
+	clear: both;
+	padding-top: 71px;
+	margin-left: 202px;
+}
+
+.footer {
+	margin-left: 123px;
+	margin-top: 10em;
+}
+
+.footer a {
+	text-decoration: none;
+	outline: none;
+	color: #3B5899;
+}

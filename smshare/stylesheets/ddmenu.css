@@ -1,0 +1,282 @@
+
+
+.bdc-dd-menu {
+	width: 200px;
+	height: 150px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid black;
+	overflow: hidden;
+}
+
+.bdc-dd-menu-panel {
+	background-color: white;
+	padding: 0;
+	margin: 0;
+}
+
+.bdc-dd-scroll-pane {
+/*	reda*/
+/*	overflow: hidden;*/
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
+	
+	/* Bug fix 17 Nov 2010  -> flèche du bas de l'ascenceur n'apparaissait plus*/
+	height:129 !important;
+}
+
+.bdc-dd-scroll-up {
+	
+/*	reda*/
+	display:none;
+	
+	width: 198px;
+	height: 10px;
+	background-image: url(../images/arrow-black-up.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: white;
+	border: 1px outset;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.bdc-dd-scroll-up-hover {
+	width: 198px;
+	height: 10px;
+	background-image: url(../images/arrow-white-up.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #09c;
+	border: 1px outset #09c;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.bdc-dd-scroll-up-click {
+	width: 198px;
+	height: 10px;
+	background-image: url(../images/arrow-white-up.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #069;
+	border: 1px inset #069;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.bdc-dd-scroll-down {
+	
+/*	reda*/
+display:none;
+
+
+	width: 198px;
+	height: 10px;
+	background-image: url(../images/arrow-black-down.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: white;
+	border: 1px outset;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.bdc-dd-scroll-down-hover {
+	width: 198px;
+	height: 10px;
+	background-image: url(../images/arrow-white-down.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #09c;
+	border: 1px outset #09c;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.bdc-dd-scroll-down-click {
+	width: 198px;
+	height: 10px;
+	background-image: url(../images/arrow-white-down.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #069;
+	border: 1px inset #069;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.bdc-dd-sub-menu {
+	padding: 0;
+	margin: 0;
+	clear: both;
+}
+
+
+.bdc-dd-item {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.bdc-dd-label {
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	
+	/*reda avirer*/
+	color:white;
+	
+}
+
+.bdc-dd-label-hover {
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	background-color: #DDEEF6;
+	
+}
+
+.bdc-dd-label-initial {
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	background-color: #3cf;
+}
+
+.bdc-dd-label-initial-hover {
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	background-color: #09c;
+}
+
+.bdc-dd-label-initial .bdc-dd-text {
+	color: white;
+}
+
+.bdc-dd-label-initial-hover .bdc-dd-text {
+	color: white;
+}
+
+.bdc-dd-text {
+	display: block;
+	padding: 3px;
+	margin: 0;
+	color: black;
+	text-decoration: none;
+	
+	/*reda*/
+	white-space: nowrap;
+	/*overflow: hidden;*/
+}
+
+.bdc-dd-label-hover .bdc-dd-text {
+	display: block;
+	padding: 3px;
+	margin: 0;
+	color: lightSlateGray;
+	text-decoration: none;
+}
+
+.bdc-dd-text-hover {
+	display: block;
+	padding: 3px;
+	margin: 0;
+	color: white;
+	text-decoration: none;
+	background-color: #09c;
+}
+
+.bdc-dd-icon {
+	width: 20px;
+	float: right;
+	margin: 0;
+	padding: 0;
+	background: url(../images/arrow-black-right.png) no-repeat;
+	background-position: center center;
+}
+
+.bdc-dd-label-hover .bdc-dd-icon {
+	width: 20px;
+	float: right;
+	margin: 0;
+	padding: 0;
+	background: url(../images/arrow-black-right.png) no-repeat;
+	background-position: center center;
+}
+
+.bdc-dd-icon-hover {
+	width: 20px;
+	float: right;
+	margin: 0;
+	padding: 0;
+	background: #09c url(../images/arrow-black-right.png) no-repeat;
+	background-position: center center;
+}
+
+.bdc-dd-title {
+	background: #5C9CCC url(../images/bg_gloss-wave_500x100.png) repeat-x 50% 50%;
+	color: white;
+	cursor: pointer;
+}
+
+.bdc-dd-title-hover {
+	/*border: 1px outset #069;*/
+	background-color: #59B;
+	color: white;
+	cursor: pointer;
+}
+
+.bdc-dd-title-root {
+	/*background-color: #88BBD4;*/
+	background: #5C9CCC url(../images/bg_gloss-wave_500x100.png) repeat-x 50% 50%;
+	
+	color: white;
+	font-weight: bold;
+}
+
+.bdc-dd-title-root-hover {
+	/*border: 2px outset #59B;*/
+	background-color: #59B;
+	color: white;
+	font-weight: bold;
+}
+
+.bdc-dd-title-label {
+	color: white;
+	font-weight: bold;
+	
+	font-size: 1.2em;
+	margin: 0;
+	padding: 0.3em 0 0.3em 0.3em;
+}
+
+.bdc-dd-title-icon {
+	width: 20px;
+	height: 100%;
+	float: right;
+	margin: 0;
+	padding: 0;
+	background: url(../images/arrow-white-up.png) no-repeat;
+	background-position: center center;
+}

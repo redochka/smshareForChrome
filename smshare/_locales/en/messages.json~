@@ -1,0 +1,323 @@
+{
+	"clientDisconnected" :	{
+								"message" : "Smshare app on your android phone is unreachable.
+Sms will be archived and will be sent once the connection is reestablished.
+Please, check on your smartphone that smshare is launched and you have a 3G/WiFi connection.",
+
+								"description" : "1"
+							},
+						
+						
+	"clientUnauthorized":	{
+								"message" : "smshare app on your android phone is unreachable.
+Once you've installed smshare on your phone, 
+check on your smartphone that smshare is launched and you've a 3G/WiFi connection.",
+
+								"description" : "2"
+							},
+
+
+
+
+	"congratulation" :		{
+								"message" : "Congratulations, you are connected.",
+								"description" : "3"	
+							},
+							
+	"loginPris" :			{
+								"message" : "This login is not available, please choose another one.",
+								"description" : "4"	
+							},
+
+	"error500" :			{
+								"message" : "You reach our maintenance time, please try later",
+								"description" : "5"	
+							},
+
+	"unknownError" :		{
+								"message" : "Smshare server is unreachable, please try again",
+								"description" : "6"	
+							},
+							
+	"authFailed" :			{
+								"message" : "Authentication failed, please check your login/password and try again.",
+								"description" : "7"	
+							},
+
+	"signIn" :				{
+								"message" : "Sign in",
+								"description" : "8"	
+							},
+
+	"register" :			{
+								"message" : "Create an account",
+								"description" : "9"	
+							},
+
+
+	"loginLabel" :			{
+								"message" : "Login",
+								"description" : "10"	
+							},
+
+	"loginSWarning" : 		{
+								"message" : "Login must not be empty",
+								"description" : "11"		
+							},
+
+	"passwdLabel" :			{
+								"message" : "Password",
+								"description" : "12"	
+							},
+
+	"passwdSWarning" : 		{
+								"message" : "Password must not be empty",
+								"description" : "13"		
+							},
+								
+	"signin_submit" :		{
+								"message" : "Sign in",
+								"description" : "14"
+							},
+
+	"rememberLabel" : 		{
+								"message" : "Remember me",
+								"description" : "15"
+							},
+
+	"noAccountYet" : 		{
+								"message" : "New to smshare? It is free and easy",
+								"description" : "16"		
+							},
+
+	"creerCompte" : 		{
+								"message" : "Create an account",
+								"description" : "17"
+							},
+
+	"passwd2Label" :		{
+								"message" : "Confirm your password",
+								"description" : "18"	
+							},
+
+	"passwd2SWarning" : 	{
+								"message" : "The confirmation password does not match",
+								"description" : "19"		
+							},
+							
+	"emailWarning" : 		{
+								"message" : "Email must not be empty",
+								"description" : "20"		
+							},
+							
+	"register_submit" :		{
+								"message" : "Create an account",
+								"description" : "21"
+							},
+							
+	"alreadyHaveAccount" :	{
+								"message" : "Do you have an account?",
+								"description" : "22"
+							},			
+							
+	"connectezVous" :		{
+								"message" : "Sign in",
+								"description" : "23"
+							},			
+							
+	"forgotPasswd" :		{
+								"message" : "Have you forgotten your password?",
+								"description" : "24"
+							},	
+							
+							
+
+
+
+	"shareLink":			{
+								"message" : "Share this link by sms",
+								"description" : "25"
+							},
+					
+	"deconnex":				{
+								"message" : "Sign out",
+								"description" : "26"
+							},
+					
+	"destinationLabel":		{
+								"message" : "Destination N° ",
+								"description" : "27"								
+							},
+						
+	"destinationWarning" :	{
+								"message" : "Please, enter your destination number",
+								"description" : "28"								
+						   	},
+						
+	"lienLabel" :			{
+								"message" : "Link ",
+								"description" : "29"																
+							},
+							
+	"lienWarning" :			{
+								"message" : "Your message is empty!",
+								"description" : "30"	
+							},
+							
+	"submit" :				{
+								"message" : "Send",
+								"description" : "31"		
+							},
+							
+	"composeSMS" :			{
+								"message" : "Write a new SMS",
+								"description" : "32"						
+							},			
+							
+	"disconnected" :		{
+								"message" : "You have been disconnected.",
+								"description" : "33"			
+							},							
+
+	"smsSent" :				{
+								"message" : "Your sms will shortly arrive to your smartphone to be sent.",
+								"description" : "34"						
+							},
+							
+	"reconnectionRequired" :{
+								"message" : "Authentication is needed.",
+								"description" : "35"						
+							},
+
+	"restant" :				{
+								"message" : "Left: ",
+								"description" : "36"						
+							},
+
+	"goToOptPage" :			{
+								"message" : "Go to options page",
+								"description" : "p"	
+							},
+							
+	"gmail407" :			{
+								"message" : "Please enter your Gmail credentials in the options page so that smshare can retrieve your contacts",
+								"description" : "p"	
+							},
+							
+	"gmail401" :			{
+								"message" : "Gmail login or password incorrect. Please, check your Gmail credentials in the options page",
+								"description" : "p"	
+							},
+							
+	"gmail502" :			{
+								"message" : "Smshare is unable to connect to Gmail. Please, try later",
+								"description" : "p"	
+							},
+							
+	"noContactData" :		{
+								"message" : "Smshare is unable to connect to Gmail. You may need to restart your browser",
+								"description" : "p"	
+							},
+			
+	"chooseAContact" :		{
+								"message" : "Choose a contact",
+								"description" : "p"	
+							},				
+							
+	"back" :				{
+								"message" : "Back",
+								"description" : "p"	
+							},				
+	
+	"flashInfo" :			{
+								"message" : "<h2>Help us win the LG competition</h2>
+<span>
+Did you like the new features available in smshare? Do you want to keep smshare <b>free</b>?
+So <b>vote</b> for smshare to win the contest.
+<br />
+<b>How?</b>
+<br />
+On LG: One comment is enough. For example: <i>«+1 smshare»</i>
+<br />
+Or on Google: Select smshare from the list of applications and confirm your choice.
+</span>
+
+<p class='remember'>
+<button id = 'lg' class = 'submitButton' name = 'Vote now!'> Vote on LG </ button>
+<span style='margin-right: 5px;'> or </span>
+<button id = 'frandroid' class = 'submitButton' name = 'Vote now!'>Vote on Google</button>
+</p>
+
+<span>Deadline September 30, 2010, then do it quickly :) </span>",
+								"description" : "p"	
+							},
+	
+							
+							
+	"changeSaved" : 		{
+								"message" : "Your changes have been saved",
+								"description" : "o1"
+							},
+							
+	"visitUs" : 			{
+								"message" : "Visit us on www.smshare.fr",
+								"description" : "o2"
+							},
+							
+	"defaultFormOpts" : 	{
+								"message" : "Choose the default form to be shown when you open smshare :",
+								"description" : "o3"
+							},
+							
+	"defaultFormOpt_share" :{
+								"message" : "Open the share link form for the current page (Default option)",
+								"description" : "o4"
+							},									
+
+	"defaultFormOpt_compose":{
+								"message" : "Open the Compose new sms form",
+								"description" : "o5"
+							},
+							
+	"saveBtn":				{
+								"message" : "Save",
+								"description" : "o6"
+							},
+								
+	"supportPage":			{
+								"message" : "_locales/en/donate.html",
+								"description" : "o7"
+							},
+													
+	"p_credentials":		{
+								"message" : "Enter your gmail credentials for smshare to access your contacts:",
+								"description" : "o8"
+							},
+							
+	"gmailEmailLabel":		{							 
+								"message" : "Your full Gmail address. <i>For example : you@gmail.com </i>",
+								"description" : "o9"
+							},
+							
+	"gmailPasswdLabel":		{							 
+								"message" : "Your Gmail password",
+								"description" : "o10"
+							},
+							
+	"leaveUsMsg":			{
+								"message" : "Leave us a message",
+								"description" : "o11"
+							},
+							
+
+
+							
+														
+							
+	"manifestDescription":	{
+								"message" : "Browse the web and share your favourite links by sms with your Android phone",
+								"description" : "44"
+							}						
+							
+							
+}

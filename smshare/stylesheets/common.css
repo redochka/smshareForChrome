@@ -1,0 +1,48 @@
+body {
+	margin:0;
+	padding:0;
+	font:13px/16px "Lucida Grande", Arial, Sans-serif;
+	color:#789;
+	background-color: #ddeef6;
+	background-image: url(../images/front-bg.gif);
+	background-repeat: repeat;
+	width: 400px;
+
+}
+.container {
+	/*width:372px;*/
+	margin:0 auto;
+	/*position: relative;*/
+}
+
+#content {
+	width:520px;
+	min-height:500px;
+}
+a:link, a:visited {
+	color:#27b;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+a img {
+	border-width:0;
+}
+
+
+
+a.signin {
+	position:relative;
+	margin-left:3px;
+}
+
+
+
+#small_signup {
+	display:inline;
+	float:none;
+	line-height:23px;
+	margin:25px 0 0;
+	width:170px;
+}

@@ -1,0 +1,116 @@
+#tabs {
+	font-size: 90%;
+	margin-top: 20px;
+	margin-right: 39px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+
+#tabs ul {
+	-webkit-border-top-right-radius:5px;
+	-webkit-border-top-left-radius:5px;
+	/*-webkit-border-bottom-left-radius:5px;*/
+	
+	background: #E3FEFA;
+	float: right;
+	margin-bottom:0px;
+	padding-left:0px;
+}
+
+#tabs li {
+	/*margin-left: 8px;*/
+	list-style: none;
+}
+
+
+#tabs li,#tabs li a {
+	float: left;
+}
+
+#tabs ul li a {
+	text-decoration: none;
+	padding: 8px;
+	color: #0073BF;	
+	font-weight: bold;
+	outline: none;
+	
+	-webkit-border-top-right-radius:5px;
+	-webkit-border-top-left-radius:5px;
+}
+
+#tabs ul li a span{
+	margin-right:1px;	
+	padding-right:15px;	
+}
+
+#tabs ul li.active a span{
+	
+	background: #DDEEF6 url(../images/tipsy-south.gif) no-repeat right center;
+}
+
+
+#tabs ul li.active {
+	
+}
+
+#tabs ul li.active a {
+	background-color: #DDEEF6;
+	color: #0073BF;
+}
+
+#tabs div {
+	float:right;
+	padding: 20px;
+	padding-right:0px;
+	padding-left:0px;
+	padding-top:0px;
+	width:321px;
+	
+}
+
+#tabs div h3 {
+	text-transform:uppercase;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+	line-height:150%;
+}
+
+
+
+
+
+/*- - - - - - - - - - - - - - - - - - - - - */
+/*- - - -       W A R N I N G S      - - - -*/
+.tooltip {
+	background-repeat: no-repeat;  
+		
+	background-color:#000;
+	border:1px solid #fff;
+	padding:10px 15px;
+	/*width:200px;*/
+	display:none;
+	color:#fff;
+	text-align:left;
+	font-size:12px;
+
+	/* outline radius for mozilla/firefox only */
+	/*-moz-box-shadow:0 0 10px #000;
+	-webkit-box-shadow:0 0 10px #000;
+	*/
+}
+
+.img4validation{
+	display:none;
+	/*float:none;*/
+	float:left;/*pour que le warning float à gauche dans popup.html*/
+	margin-left: 5px;
+	width:12px;
+}
+
+/*- - - -       W A R N I N G S      - - - -*/
+/*- - - - - - - - - - - - - - - - - - - - - */
+
+#counter{
+	float:right;
+}
+

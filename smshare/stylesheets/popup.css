@@ -1,0 +1,212 @@
+body {
+	min-width: 357px;
+	/*overflow-x: hidden;*/
+	/*reda*/
+	overflow: hidden;
+}
+
+#parent{
+	margin-bottom: 50px;
+	margin-right: 50px;
+}
+
+img {
+	float:left;
+	margin-right: 10px;
+	margin-left:45px;
+	/*height: 75px;*/
+	width: 24px;
+}
+
+#result{
+	margin-top:15px;
+}
+
+/* * * * * * * * * * */
+/*debut de style.css */
+/* attention si tu reviens dans un fichier à part il faut changer le chemin des images*/
+
+#topnav,#smshareMenu, #smshareMenu2 {
+	font-size:11px;
+	line-height:23px;
+	margin-top:25px;
+	padding:10px 0px 12px;
+	text-align:right;
+}
+#smshareMenu, #smshareMenu2{
+	/*background:#88BBD4 url(images/toggle_down_light.png) no-repeat scroll 98% 46%;*/
+	background-color:#88BBD4;
+	background-image: url(../images/toggle_down_light.png);
+	background-repeat: no-repeat;
+	background-position:98% 46%;
+	
+	margin-left:33px;
+	padding:0;
+	text-align:left;
+	width:330px;
+	
+	-webkit-border-top-left-radius:4px;
+	-webkit-border-top-right-radius:4px;
+	-webkit-border-bottom-left-radius:4px;
+}
+#topnav:hover,#smshareMenu:hover ,#smshareMenu2:hover{
+	/*background:#59B url(../images/toggle_down_light.png) no-repeat scroll 98% 46%;;*/
+	background-color:#59B;
+}
+
+
+
+ #topnav a.signin, #smshareMenu a.signin,#smshareMenu2 a.signin {
+	background:#88bbd4;
+	padding:4px 6px 6px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fff ;
+	-webkit-border-top-left-radius:4px;
+	-webkit-border-top-right-radius:4px;
+	-webkit-border-bottom-left-radius:4px;
+	outline: none;
+}
+ #smshareMenu a.signin,#smshareMenu2 a.signin {
+ 	background: transparent;
+ }
+ 
+ /*Pour que le menu soit cliquable jusqu'au bout*/
+ #smshareMenu a.signin{
+ 	padding-right: 25px;
+ }
+ 
+/* 
+#topnav a.signin:hover,#smshareMenu a.signin:hover ,#smshareMenu2 a.signin:hover{
+	background:#59B;
+}
+*/
+
+a.signin span{
+	/*background-image:url("../images/toggle_down_light.png");
+	background-repeat:no-repeat;
+	background-position:100% 50%;*/
+	padding:4px 16px 6px 0;
+}
+
+#smshareMenu a.signin span,#smshareMenu2 a.signin span {
+	/*padding:4px 250px 6px 0;*/
+	padding:4px 156px 6px 0;
+}
+
+/*#topnav a.menu-open, #smshareMenu a.menu-open, #smshareMenu2 a.menu-open  {*/
+#topnav a.menu-open, #smshareMenu.menu-open, #smshareMenu2.menu-open  {
+	-webkit-border-bottom-left-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	
+	background-color:#ddeef6;
+	color:#666;/* == #789*/
+	outline:none;
+}
+
+
+
+#topnav a.signin.menu-open span {
+	background-image:url("../images/toggle_up_dark.png");
+	color:#789;
+}
+#smshareMenu.menu-open, #smshareMenu2.menu-open {
+	background-image:url("../images/toggle_up_dark.png");
+}
+
+#smshareMenu.menu-open span, #smshareMenu2.menu-open span{
+	color:#789;
+}
+
+
+#signin_menu,#share_menu_fieldset,#share_menu_fieldset2{
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	background-color:#ddeef6;
+	z-index:100;
+	border:1px transparent;
+	
+	color:#789;
+	font-size:11px;
+	margin-left: 33px;
+	margin-right: -13px;
+	padding:12px 32px 12px 28px;
+	text-align:left;
+	width:270px;
+}
+
+
+#share_menu_fieldset,#share_menu_fieldset2{
+	/*casse les contacts, si tu remets il faut sortir les contact du fieldset*/
+	/*display:none;*/
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+}
+
+
+
+/*Comme dans register , ce #signin_menu doit etre remplacer par .myFieldSet ici, et dans l'html en bas.*/
+#signin_menu input[type=text],#signin_menu textarea,#signin_menu input[type=password],
+#share_menu_fieldset input[type=text],#share_menu_fieldset textarea,#share_menu_fieldset input[type=password], 
+#share_menu_fieldset2 input[type=text],#share_menu_fieldset2 textarea,#share_menu_fieldset2 input[type=password] {
+	display:block;
+	-webkit-border-radius:4px;
+	border:1px solid #ACE;
+	font-size:13px;
+	margin:0 0 5px;
+	padding:5px;
+	/*width:203px;*/
+	width:100%;
+}
+
+#signin_menu p , #share_menu_fieldset p, #share_menu_fieldset2 p{
+	margin:0;
+}
+#signin_menu a, #share_menu_fieldset a, #share_menu_fieldset2 a {
+	color:#6AC;
+}
+#signin_menu label , #share_menu_fieldset label , #share_menu_fieldset2 label {
+	float:left;/*pour que les warning se mettent à droite*/
+	font-weight:normal;
+	margin-right: 5px;
+}
+#signin_menu p.remember , #share_menu_fieldset #signin_menu p.remember, #share_menu_fieldset2 #signin_menu p.remember{
+	padding:10px 0;
+}
+#signin_menu p.forgot, #signin_menu p.complete, #share_menu_fieldset p.forgot, #share_menu_fieldset p.complete,#share_menu_fieldset2 p.forgot, #share_menu_fieldset2 p.complete{
+	clear:both;
+	margin:5px 0;
+}
+#signin_menu p a, #share_menu_fieldset p a, #share_menu_fieldset2 p a{
+	color:#27B!important;
+}
+
+
+#signin_submit::-moz-focus-inner {
+padding:0;
+border:0;
+}
+#signin_submit:hover, #signin_submit:focus {
+	background-position:0 -5px;
+	cursor:pointer;
+}
+
+
+.flashInfo{
+	width: 386px;
+	text-align: center;
+}
+
+/*fieldset input[type=submit]*/
+.submitButton{
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	background:#39d url('../images/bg-btn-blue.png') repeat-x scroll 0 0;
+	border:1px solid #39D;
+	color:#fff;
+	text-shadow:0 -1px 0 #39d;
+	padding:4px 10px 5px;
+	font-size:11px;
+	margin:0 5px 0 0;
+	font-weight:bold;
+	}

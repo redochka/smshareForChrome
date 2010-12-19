@@ -1,0 +1,317 @@
+{
+	"clientDisconnected" :	{
+								"message" : "L'application smshare sur votre téléphone est injoignable.
+Les sms seront archivés et ne seront acheminés qu'une fois la connexion rétablie.
+Vérifiez que l'application est bien lancée et que votre téléphone dispose d'une connexion 3G/wifi.",
+
+								"description" : ""
+							},
+						
+						
+	"clientUnauthorized":	{
+								"message" : "L'application smshare sur votre téléphone est injoignable.
+Une fois que vous avez installé smshare sur votre téléphone, 
+vérifiez qu'elle est bien lancée et que votre téléphone dispose d'une connexion 3G/WiFi.",
+
+								"description" : ""
+							},
+
+
+
+
+	"congratulation" :		{
+								"message" : "Félicitation, vous êtes connectés.",
+								"description" : "r1"	
+							},
+							
+	"loginPris" :			{
+								"message" : "Ce login est déjà pris, veuillez choisir un autre.",
+								"description" : "r2"	
+							},
+
+	"error500" :			{
+								"message" : "Problème au niveau du server, merci de revenir dans un moment.",
+								"description" : "r3"	
+							},
+
+	"unknownError" :		{
+								"message" : "Impossible de contacter le server.",
+								"description" : "r4"	
+							},
+							
+	"authFailed" :			{
+								"message" : "Le login ou le mot de passe sont incorrects. Merci de réessayer.",
+								"description" : "#result append span"	
+							},
+
+	"signIn" :				{
+								"message" : "S'identifier",
+								"description" : "#tab-1 > span"	
+							},
+
+	"register" :			{
+								"message" : "Créer un compte",
+								"description" : "#tab-2 > span"	
+							},
+
+
+	"loginLabel" :			{
+								"message" : "Nom d'utilisateur",
+								"description" : "label for = login_S > span"	
+							},
+
+	"loginSWarning" : 		{
+								"message" : "Merci de spécifier votre login",
+								"description" : "imgLS"		
+							},
+
+	"passwdLabel" :			{
+								"message" : "Mot de passe",
+								"description" : "label[for=password_S] > span"	
+							},
+
+	"passwdSWarning" : 		{
+								"message" : "Merci de spécifier votre mot de passe",
+								"description" : "imgPS"		
+							},
+								
+	"signin_submit" :		{
+								"message" : "Connecter",
+								"description" : "#signin_submit"
+							},
+
+	"rememberLabel" : 		{
+								"message" : "Se rappeler de moi",
+								"description" : "label for=remember"
+							},
+
+	"noAccountYet" : 		{
+								"message" : "Vous n'avez pas encore de compte ?",
+								"description" : ".forgot  p  span"		
+							},
+
+	"creerCompte" : 		{
+								"message" : "Créez le !",
+								"description" : "creer-compte"
+							},
+
+	"passwd2Label" :		{
+								"message" : "Confirmer votre mot de passe",
+								"description" : "label[for=passwd2_S] > span"	
+							},
+
+	"passwd2SWarning" : 	{
+								"message" : "Les mots de passe doivent concorder",
+								"description" : "imgP2R"		
+							},
+							
+	"emailWarning" : 		{
+								"message" : "Merci de spécifier votre email",
+								"description" : "imgLS"		
+							},
+							
+	"register_submit" :		{
+								"message" : "Créer mon compte",
+								"description" : "#register_submit"
+							},
+							
+	"alreadyHaveAccount" :	{
+								"message" : "Vous avez déjà un compte ?",
+								"description" : "#registerForm p:last > span"
+							},			
+							
+	"connectezVous" :		{
+								"message" : "Connecter-vous",
+								"description" : "#Connecter-vous"
+							},			
+	
+	"forgotPasswd" :		{
+								"message" : "Vous avez oublié votre mot de passe ?",
+								"description" : ""
+							},									
+														
+							
+
+
+
+	"shareLink":			{
+								"message" : "Partager ce lien par SMS",
+								"description" : "#sig1 > span"
+							},
+					
+	"deconnex":				{
+								"message" : "Déconnexion",
+								"description" : "#deconnex"
+							},
+					
+	"destinationLabel":		{
+								"message" : "N° Destination ",
+								"description" : "for = destination | #destination"								
+							},
+						
+	"destinationWarning" : 	{
+								"message" : "Merci de spécifier un numéro de destinataire",
+								"description" : "#imgD"								
+						   	},
+						
+	"lienLabel" :			{
+								"message" : "Lien ",
+								"description" : "for = lien"																
+							},
+							
+	"lienWarning" :			{
+								"message" : "Votre message est vide !",
+								"description" : "#imgL"	
+							},
+							
+	"submit" :				{
+								"message" : "Envoyer",
+								"description" : "input type=submit"		
+							},
+							
+	"composeSMS" :			{
+								"message" : "Composer un nouveau SMS",
+								"description" : "#sig2 > span"						
+							},
+
+	"disconnected" :		{
+								"message" : "Vous avez été déconnecté.",
+								"description" : ""			
+							},							
+
+	"smsSent" :				{
+								"message" : "Votre message sera bientôt transmis à votre téléphone pour l'envoi.",
+								"description" : ""						
+							},
+							
+	"reconnectionRequired" :{
+								"message" : "Vous devez vous reconnecter",
+								"description" : ""						
+							},
+							
+	"restant" :				{
+								"message" : "Restant : ",
+								"description" : ""						
+							},
+							
+	"goToOptPage" :			{
+								"message" : "Aller à la page options",
+								"description" : "p"	
+							},
+							
+	"gmail407" :			{
+								"message" : "Merci de rentrer vos login / mot de passe Gmail dans la page options pour que smshare puisse accéder à vos contacts",
+								"description" : "p"	
+							},
+																					
+	"gmail401" :			{
+								"message" : "Vos identifiants Gmail sont incorrects. Merci de vérifier vos login / mot de passe Gmail dans la page options",
+								"description" : "p"	
+							},
+							
+	"gmail502" :			{
+								"message" : "Smshare n'est pas en mesure de se connecter à Gmail. Merci de réessayer plus tard",
+								"description" : "p"	
+							},
+							
+	"chooseAContact" :		{
+								"message" : "Choisissez un contact",
+								"description" : "p"	
+							},
+							
+	"back" :				{
+								"message" : "Préc",
+								"description" : "p"	
+							},							
+							
+	"flashInfo" :			{
+								"message" : "<h2>Concours LG</h2>
+<span >
+Vous avez apprécié les fonctionnalités de smshare. Vous voulez garder smshare <b>gratuite</b>.
+Alors <b>votez</b> pour que nous remportions le concours de la meilleure application.
+<br />
+<b>Comment ?</b>
+<br /> 
+Sur LG : Un commentaire suffit. Par exemple : <i>«+1 pour smshare»</i>
+<br /> 
+Ou sur Google : Sélectionnez smshare dans la liste et validez.
+</span>
+
+<p class='remember'>
+    	<button id='lg' class='submitButton' name='Votez maintenant !' >Votez sur LG !</button>
+    	<span style='margin-right: 5px;'>ou </span>
+    	<button id='frandroid' class='submitButton' name='Votez maintenant !' >Votez sur Google !</button>
+</p> 
+
+<span>Dernier délai le 30 septembre 2010, alors votez-vite :)</span>",
+			
+								"description" : "p"	
+							},							
+				
+				
+							
+							
+							
+	"changeSaved" : 		{
+								"message" : "Vos changements ont été enregistrés.",
+								"description" : "o1"
+							},
+							
+	"visitUs" : 			{
+								"message" : "Visitez le site www.smshare.fr",
+								"description" : "o2"
+							},
+							
+	"defaultFormOpts" : 	{
+								"message" : "Spécifiez le formulaire par défaut qui s'affichera lorsque vous ouvrez smshare :",
+								"description" : "o3"
+							},
+							
+	"defaultFormOpt_share" :{
+								"message" : "Ouvrir le formulaire pour le partage de lien de la page en cours (Choix par défaut)",
+								"description" : "o4"
+							},									
+
+	"defaultFormOpt_compose":{
+								"message" : "Ouvrir le formulaire pour composer un nouveau sms",
+								"description" : "o5"
+							},
+							
+	"saveBtn":				{
+								"message" : "Enregistrer",
+								"description" : "o6"
+							},
+	
+	"supportPage":			{
+								"message" : "_locales/fr/donate.html",
+								"description" : "o7"
+							},
+							
+	"p_credentials":		{
+								"message" : "Renseignez vos identifiants Gmail pour que smshare puisse récupérer vos contacts :",
+								"description" : "o8"
+							},
+											
+	"gmailEmailLabel":		{							 
+								"message" : "Votre email Gmail complète. <i>Par exemple : you@gmail.com </i>",
+								"description" : "o9"
+							},			
+							
+	"gmailPasswdLabel":		{							 
+								"message" : "Votre mot de passe Gmail",
+								"description" : "o10"
+							},
+	
+	"leaveUsMsg":			{
+								"message" : "Nous laisser un message",
+								"description" : "o11"
+							},
+													
+							
+	"manifestDescription":	{
+								"message" : "Partager facilement vos pages web ou simplement envoyez des sms avec votre téléphone Android",
+								"description" : ""
+							}						
+							
+							
+}
