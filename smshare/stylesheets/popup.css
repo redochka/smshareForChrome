@@ -14,18 +14,41 @@ img {
 	float:left;
 	margin-right: 10px;
 	margin-left:45px;
-	/*height: 75px;*/
-	width: 24px;
 }
 
 #result{
 	margin-top:15px;
 }
 
-/* * * * * * * * * * */
-/*debut de style.css */
-/* attention si tu reviens dans un fichier à part il faut changer le chemin des images*/
+#result img{
+	width: 24px;
+}
 
+/* * * * * * * * * * * * * * * */
+/* * * *  Contact  menu  * * * */
+
+.slide{
+  position: relative;
+  left: 149px;
+  top: 36px;
+	
+}
+
+ #inner1, #inner2{
+ 	position: absolute;
+	top:-20px; 	
+	left:-81px;
+ } 
+
+.contact-button-loading{
+	float: right; margin-right: 158px; margin-top: -55px;
+}
+
+.contact-button{
+	width:36px;
+	margin-right: 149px;
+}
+ 
 #topnav,#smshareMenu, #smshareMenu2 {
 	font-size:11px;
 	line-height:23px;
@@ -119,7 +142,7 @@ a.signin span{
 }
 
 
-#signin_menu,#share_menu_fieldset,#share_menu_fieldset2{
+#signin_menu,#share_menu_fieldset1,#share_menu_fieldset2{
 	-webkit-border-bottom-left-radius:5px;
 	-webkit-border-bottom-right-radius:5px;
 	background-color:#ddeef6;
@@ -136,7 +159,7 @@ a.signin span{
 }
 
 
-#share_menu_fieldset,#share_menu_fieldset2{
+#share_menu_fieldset1,#share_menu_fieldset2{
 	/*casse les contacts, si tu remets il faut sortir les contact du fieldset*/
 	/*display:none;*/
 	-webkit-border-bottom-left-radius:5px;
@@ -147,7 +170,7 @@ a.signin span{
 
 /*Comme dans register , ce #signin_menu doit etre remplacer par .myFieldSet ici, et dans l'html en bas.*/
 #signin_menu input[type=text],#signin_menu textarea,#signin_menu input[type=password],
-#share_menu_fieldset input[type=text],#share_menu_fieldset textarea,#share_menu_fieldset input[type=password], 
+#share_menu_fieldset1 input[type=text],#share_menu_fieldset1 textarea,#share_menu_fieldset1 input[type=password], 
 #share_menu_fieldset2 input[type=text],#share_menu_fieldset2 textarea,#share_menu_fieldset2 input[type=password] {
 	display:block;
 	-webkit-border-radius:4px;
@@ -159,25 +182,25 @@ a.signin span{
 	width:100%;
 }
 
-#signin_menu p , #share_menu_fieldset p, #share_menu_fieldset2 p{
+#signin_menu p , #share_menu_fieldset1 p, #share_menu_fieldset2 p{
 	margin:0;
 }
-#signin_menu a, #share_menu_fieldset a, #share_menu_fieldset2 a {
+#signin_menu a, #share_menu_fieldset1 a, #share_menu_fieldset2 a {
 	color:#6AC;
 }
-#signin_menu label , #share_menu_fieldset label , #share_menu_fieldset2 label {
+#signin_menu label , #share_menu_fieldset1 label , #share_menu_fieldset2 label {
 	float:left;/*pour que les warning se mettent à droite*/
 	font-weight:normal;
 	margin-right: 5px;
 }
-#signin_menu p.remember , #share_menu_fieldset #signin_menu p.remember, #share_menu_fieldset2 #signin_menu p.remember{
+#signin_menu p.remember , #share_menu_fieldset1 #signin_menu p.remember, #share_menu_fieldset2 #signin_menu p.remember{
 	padding:10px 0;
 }
-#signin_menu p.forgot, #signin_menu p.complete, #share_menu_fieldset p.forgot, #share_menu_fieldset p.complete,#share_menu_fieldset2 p.forgot, #share_menu_fieldset2 p.complete{
+#signin_menu p.forgot, #signin_menu p.complete, #share_menu_fieldset1 p.forgot, #share_menu_fieldset1 p.complete,#share_menu_fieldset2 p.forgot, #share_menu_fieldset2 p.complete{
 	clear:both;
 	margin:5px 0;
 }
-#signin_menu p a, #share_menu_fieldset p a, #share_menu_fieldset2 p a{
+#signin_menu p a, #share_menu_fieldset1 p a, #share_menu_fieldset2 p a{
 	color:#27B!important;
 }
 

@@ -20,50 +20,51 @@ var bgPage = chrome.extension.getBackgroundPage();
 var user = bgPage.user;
 
 
-function setContactMenuContent(){
-	
+/**
+ * @param num : weather the first fieldset or the second
+ */
+function setContactMenuContent(num){
 	
 	var menuContent = new Object();
 
 	getContactFromData(bgPage.contactDATA, menuContent);
-//	window.setTimeout(toto, 5000);
 
-	$("#nav1, #nav2").html(menuContent.ul);
-	
-	if(menuContent.contactErrorPage)
-	{
-		addErrorBehavior(menuContent.contactErrorPage);	
-	}
-	else{
-		addPhoneBehavior();	
-	}
-	
+	$("#nav"+num).html(menuContent.ul);
+
 	if(menuContent.backText){
-		$('#nav1 > ul, #nav2 > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250, backText:menuContent.backText});
+		$('#nav'+num+' > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250, backText:menuContent.backText});
 	}else{
-		$('#nav1 > ul, #nav2 > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250});
+		$('#nav'+num+' > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250});
 	}
 	
-	
-
-	//Éviter le display none sur le menu avant sa fabrication. sinon les propriété css seront effacées et le dd menu vera height == 0 sur le deuxième menu
-	$("#share_menu_fieldset").hide();
-	$("#share_menu_fieldset2").hide();
-	
-	
-	//Which form (fieldset) to show :
-	var options = restoreOption();
-	
-	log(options.defaultAction);
-
-	if (options.defaultAction == "share") {
-		toggleSig1("fast");
-	} else {
-		toggleSig2("fast")
-	}
 
 	//Éviter le display none sur le menu avant sa fabrication.
-	$('.inner').hide();//cacher le ddMenu
+//	$('.inner').hide();//cacher le ddMenu
+	$('#inner'+num).hide();//cacher le ddMenu
+
+	//Moving elements : http://www.elated.com/articles/jquery-removing-replacing-moving-elements/
+//	$("#share_menu_fieldset1 div.inner").append( $("#nav1") );
+	$("#nav"+num).appendTo( "#inner"+num );
+	
+	
+	
+	//Change the loading img to a button and make it clickable
+	$('#slidebottom'+num+' img').attr("src", "images/android_head2.png").addClass("contact-button");
+	//$('#slidebottom1 img, #slidebottom2 img').addClass("contact-button");
+	
+	//OnClick show contact list (ddMenu)
+	$('#slidebottom'+num+' img').click(function() {
+		$(this).next().slideToggle('fast');
+	});
+	
+	//Append clicked phone number to destination input, setup error page 
+	if(menuContent.contactErrorPage)
+	{
+		addErrorBehavior(menuContent.contactErrorPage, num);	
+	}
+	else{
+		addPhoneBehavior(num);	
+	}
 	
 }
 
@@ -169,24 +170,18 @@ function getContactFromData(data, menuContent){
 }
 	
 	
-function addPhoneBehavior(){
+function addPhoneBehavior(num){
 	//Get the contact phone number
-	$("#nav1 a").click(function(e){
-		$("#destination").val($(this).attr("href"));
-		$('.inner').hide();
-		e.preventDefault();
-	});
-	
-	$("#nav2 a").click(function(e){
-		$("#destination2").val($(this).attr("href"));
-		$('.inner').hide();
+	$("#inner"+num+" a").click(function(e){
+		$("#share_menu_fieldset"+num+" input[name=destination]").val($(this).attr("href"));
+		$('#inner'+num).hide();
 		e.preventDefault();
 	});
 }
 
 function addErrorBehavior(page){
-	$("#nav1 a, #nav2 a").click(function(e){
-		$('.inner').hide();
+	$("#nav"+num+" a").click(function(e){
+		$('#inner'+num).hide();
 		e.preventDefault();
 		window.open(page,'_newtab');
 	});
@@ -346,9 +341,28 @@ function readResponse(data, textStatus) {
 
 $(function() { // JQUERY ON LOAD
 	
+	//Éviter le display none sur le menu avant sa fabrication. sinon les propriété css seront effacées et le dd menu verra height == 0 sur le deuxième menu
+	$("#share_menu_fieldset1").hide();
+	$("#share_menu_fieldset2").hide();
 	
-	//menu ipod js
-	setContactMenuContent();
+	
+	//Which form (fieldset) to show :
+	var options = restoreOption();
+	
+	log(options.defaultAction);
+
+	if (options.defaultAction == "share") {
+		toggleSig1("fast");
+		//menu ipod js
+		setTimeout("setContactMenuContent(1)",1000);
+		setTimeout("setContactMenuContent(2)",3000);
+	} else {
+		toggleSig2("fast")
+		//menu ipod js
+		setTimeout("setContactMenuContent(2)",600);
+//		setTimeout("setContactMenuContent(1)",3000);
+	}
+	
 	
 	// L A N G U A G E 
 	translate();
@@ -356,13 +370,6 @@ $(function() { // JQUERY ON LOAD
 	
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - */
 	/* - - - - - F O N C T I O N N A L I T É - - - - - - */
-	
-	
-	//Fonction du bouton pour afficher le ddMenu
-	$('#slidebottom1 img, #slidebottom2 img').click(function() {
-		$(this).next().slideToggle('fast');
-	});
-	
 	
 	
 	// $(".signin").click(function(e) {
@@ -538,9 +545,9 @@ function toggleSig1(fast) {
 	// $("#sig1").toggleClass("menu-open");
 	$("#smshareMenu").toggleClass("menu-open");
 	if (fast) {
-		$("fieldset#share_menu_fieldset").toggle();
+		$("fieldset#share_menu_fieldset1").toggle();
 	} else {
-		$("fieldset#share_menu_fieldset").slideToggle("slow");
+		$("fieldset#share_menu_fieldset1").slideToggle("slow");
 	}
 
 	var textL = $('#lien').val();

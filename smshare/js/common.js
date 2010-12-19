@@ -15,8 +15,8 @@ var CONTACTS_US_PAGE_URL = "http://localhost:8084/contact.html#signin_menu";
 
 var CHECK_STATUS_DELAY = 50000;// 20 seconds
 
+ */
 var logger = true;
-*/
 
 
 
@@ -37,7 +37,7 @@ var CONTACTS_US_PAGE_URL = "http://www.smshare.fr/contact.html#signin_menu";
 
 var CHECK_STATUS_DELAY = 300000; //5 minutes a diminuer
 
-var logger = false;
+//var logger = false;
 
 
 
