@@ -1,4 +1,4 @@
-#topnav,#smshareMenu {
+#smshareMenu {
 	padding:10px 0px 12px;
 	font-size:11px;
 	line-height:23px;
@@ -10,46 +10,12 @@
 
 
 
- #topnav a.signin, #smshareMenu a.signin {
-	background:#88bbd4;
-	padding:4px 6px 6px;
-	text-decoration:none;
-	font-weight:bold;
-	color:#fff ;
-	-webkit-border-radius:4px;
-	-moz-border-radius:4px;
-	border-radius:4px;
-	outline: none;
-}
-#topnav a.signin:hover,#smshareMenu a.signin:hover{
-	background:#59B;
-}
-
-
-a.signin span,#smshareMenu a.signin span {
-	background-image:url("../images/toggle_down_light.png");
-	background-repeat:no-repeat;
-	background-position:100% 50%;
-	padding:4px 16px 6px 0;
-}
-
-#smshareMenu a.signin span {
-	padding:4px 250px 6px 0;
-}
-
-#topnav a.menu-open, #smshareMenu a.menu-open  {
+#smshareMenu a.menu-open  {
 	background:#ddeef6!important;
 	color:#666!important;
 	outline:none;
 }
 
-
-
-a.signin.menu-open span {
-	background-image:url("../images/toggle_up_dark.png");
-	color:#789;
-	
-}
 
 #signin_menu, .myFieldSet{
 	-moz-border-radius-topleft:5px;

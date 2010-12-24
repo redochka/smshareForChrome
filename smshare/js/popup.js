@@ -19,51 +19,47 @@ var bgPage = chrome.extension.getBackgroundPage();
 
 var user = bgPage.user;
 
+var action ;
 
-/**
- * @param num : weather the first fieldset or the second
- */
-function setContactMenuContent(num){
+function setContactMenuContent(){
 	
 	var menuContent = new Object();
 
 	getContactFromData(bgPage.contactDATA, menuContent);
 
-	$("#nav"+num).html(menuContent.ul);
+	$("#nav").html(menuContent.ul);
 
 	if(menuContent.backText){
-		$('#nav'+num+' > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250, backText:menuContent.backText});
+		$('#nav > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250, backText:menuContent.backText});
 	}else{
-		$('#nav'+num+' > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250});
+		$('#nav > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250});
 	}
 	
 
 	//Éviter le display none sur le menu avant sa fabrication.
-//	$('.inner').hide();//cacher le ddMenu
-	$('#inner'+num).hide();//cacher le ddMenu
+	$('.inner').hide();//cacher le ddMenu
 
 	//Moving elements : http://www.elated.com/articles/jquery-removing-replacing-moving-elements/
-//	$("#share_menu_fieldset1 div.inner").append( $("#nav1") );
-	$("#nav"+num).appendTo( "#inner"+num );
+//	$(".inner").append( $("#nav1") );
+	$("#nav").appendTo( ".inner" );
 	
 	
 	
 	//Change the loading img to a button and make it clickable
-	$('#slidebottom'+num+' img').attr("src", "images/android_head2.png").addClass("contact-button");
-	//$('#slidebottom1 img, #slidebottom2 img').addClass("contact-button");
+	$('#slidebottom img').attr("src", "images/android_head2.png").addClass("contact-button");
 	
 	//OnClick show contact list (ddMenu)
-	$('#slidebottom'+num+' img').click(function() {
+	$('#slidebottom img').click(function() {
 		$(this).next().slideToggle('fast');
 	});
 	
 	//Append clicked phone number to destination input, setup error page 
 	if(menuContent.contactErrorPage)
 	{
-		addErrorBehavior(menuContent.contactErrorPage, num);	
+		addErrorBehavior(menuContent.contactErrorPage);	
 	}
 	else{
-		addPhoneBehavior(num);	
+		addPhoneBehavior();	
 	}
 	
 }
@@ -170,18 +166,19 @@ function getContactFromData(data, menuContent){
 }
 	
 	
-function addPhoneBehavior(num){
+function addPhoneBehavior(){
 	//Get the contact phone number
-	$("#inner"+num+" a").click(function(e){
-		$("#share_menu_fieldset"+num+" input[name=destination]").val($(this).attr("href"));
-		$('#inner'+num).hide();
+	$(".inner a").click(function(e){
+		//$("#share_menu_fieldset input[name=destination]").val($(this).attr("href"));
+		fillDestination($(this).attr("href"));
+		$('.inner').hide();
 		e.preventDefault();
 	});
 }
 
 function addErrorBehavior(page){
-	$("#nav"+num+" a").click(function(e){
-		$('#inner'+num).hide();
+	$("#nav a").click(function(e){
+		$('.inner').hide();
 		e.preventDefault();
 		window.open(page,'_newtab');
 	});
@@ -249,7 +246,6 @@ function partager(form) {
 	}
 }
 
-//function sendNewShareLink(user, form) {
 function sendNewShareLink(form) {
 	
 //	var req = new XMLHttpRequest();
@@ -342,67 +338,34 @@ function readResponse(data, textStatus) {
 $(function() { // JQUERY ON LOAD
 	
 	//Éviter le display none sur le menu avant sa fabrication. sinon les propriété css seront effacées et le dd menu verra height == 0 sur le deuxième menu
-	$("#share_menu_fieldset1").hide();
-	$("#share_menu_fieldset2").hide();
+	$("#fieldset1").hide();
+	$("#fieldset2").hide();
 	
 	
 	//Which form (fieldset) to show :
 	var options = restoreOption();
-	
+	action = options.defaultAction;
 	log(options.defaultAction);
 
-	if (options.defaultAction == "share") {
+	if (options.defaultAction == constant.ACTION_SHARE) {
 		toggleSig1("fast");
-		//menu ipod js
-		setTimeout("setContactMenuContent(1)",1000);
-		setTimeout("setContactMenuContent(2)",3000);
 	} else {
-		toggleSig2("fast")
-		//menu ipod js
-		setTimeout("setContactMenuContent(2)",600);
-//		setTimeout("setContactMenuContent(1)",3000);
+		toggleSig2("fast");
 	}
 	
+	placeContactMenu();
+	
+	//menu ipod js
+	setTimeout("setContactMenuContent()",600);
 	
 	// L A N G U A G E 
 	translate();
 
 	
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - */
-	/* - - - - - F O N C T I O N N A L I T É - - - - - - */
-	
-	
-	// $(".signin").click(function(e) {
-	$("#sig1").click(function(e) {
-		toggleSig1();
-		// + fermer le deuxieme s'il est ouvert
-		if ($("#smshareMenu2").hasClass("menu-open")) {
-			toggleSig2();
-		}
-	
-		e.preventDefault();
-	});
-	
-	$("#sig2").click(function(e) {
-		e.preventDefault();
-		toggleSig2()
-	
-		if ($("#smshareMenu").hasClass("menu-open")) {
-			toggleSig1();
-		}
-	});
-	
-	$("fieldset#signin_menu").mouseup(function() {
-		return false;
-	});
-	
-	
-	
-	
 	
 	$('#deconnex').click(
 					function() {
-						//var bgPage = chrome.extension.getBackgroundPage();
+						$('#result').html("");
 						bgPage.changePopupToRegister();
 						deleteAllUser();
 						bgPage.stopTimeout();
@@ -416,20 +379,21 @@ $(function() { // JQUERY ON LOAD
 	
 	$('#signinForm').submit(
 					function(e) {
-						var dest = $(
-								'#signinForm input[name="destination"]')
-								.val();
-						var msg = $('#signinForm textarea')
-								.val();
+						$('#imgD').hide();
+						$('#imgL').hide();
+						
+						var dest = $('#signinForm input[name="destination"]').val();
+						var msg = $('#signinForm textarea').val();
+						
 						if (dest == null || dest.length == 0) {
 							$('#imgD').show();
-							return false
+							return false;
 						}
 						if (msg == null || msg.length == 0) {
 							$('#imgL').show();
 							return false;
 						}
-						// VALIDATION OK
+						// VALIDATION with success
 						partager("signinForm");
 						e.preventDefault();
 	
@@ -437,14 +401,15 @@ $(function() { // JQUERY ON LOAD
 	
 	$('#newSmsForm').submit(
 					function(e) {
-						var dest = $(
-								'#newSmsForm input[name="destination"]')
-								.val();
-						var msg = $('#newSmsForm textarea')
-								.val();
+						$('#imgD2').hide();
+						$('#imgM').hide();
+						
+						var dest = $('#newSmsForm input[name="destination"]').val();
+						var msg = $('#newSmsForm textarea').val();
+						
 						if (dest == null || dest.length == 0) {
 							$('#imgD2').show();
-							return false
+							return false;
 						}
 						if (msg == null || msg.length == 0) {
 							$('#imgM').show();
@@ -454,33 +419,8 @@ $(function() { // JQUERY ON LOAD
 						e.preventDefault();
 					});
 	
-	/* - - - - - F O N C T I O N N A L I T É - - - - - - */
-	/* - - - - - - - - - - - - - - - - - - - - - - - - - */
 	
-	// TODO DEPLACER
-	// C O M M U N
-	// select all desired input fields and attach tooltips to them
-	
-	$(".img4validation").tooltip({
-	
-		// place tooltip on the right edge
-		// position: "center right",
-		position : "center right",
-	
-		// a little tweaking of the position : vertical ,
-		// horizontal
-		offset : [ 0, 10 ],
-	
-		// use the built-in fadeIn/fadeOut effect
-		effect : "fade",
-	
-		// custom opacity setting
-		opacity : 0.7,
-	
-		// use this single tooltip element
-		tip : '.tooltip'
-	
-	});
+	enableTooltip();
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * * G E S T I O N   D E   L A   T A I L L E   D E S   S M S * * */
@@ -518,13 +458,94 @@ $(function() { // JQUERY ON LOAD
 	/* * * G E S T I O N   D E   L A   T A I L L E   D E S   S M S * * */
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	
-	});// Fin de jquery onLoad
+	$("#menu_bar_1").click(function(e) {
+		toggleSig1();
+		
+		// + fermer le deuxieme s'il est ouvert
+		if ($("#menu_bar_2").hasClass("menu-open")) {
+			toggleSig2();
+		}
+		
+		placeContactMenu();
+		e.preventDefault();
+	});
+	
+	$("#menu_bar_2").click(function(e) {
+		toggleSig2();
+	
+		if ($("#menu_bar_1").hasClass("menu-open")) {
+			toggleSig1();
+		}
+		
+		placeContactMenu();
+		e.preventDefault();
+	});
+	
+	$("fieldset#signin_menu").mouseup(function() {
+		return false;
+	});
+	
+});// Fin de jquery onLoad
 
 
+
+function toggleSig1(fast) {
+	$("#menu_bar_1").toggleClass("menu-open");
+	if (fast) {
+		$("#fieldset1").toggle();
+	} else {
+		$("#fieldset1").slideToggle("slow");
+	}
+	
+	if ($("#menu_bar_1").hasClass("menu-open")) {
+		putPageUrlInMessageBox();
+	}
+}
+
+function toggleSig2(fast) {
+	$("#menu_bar_2").toggleClass("menu-open");
+	if (fast) {
+		$("#fieldset2").toggle();
+	} else {
+		$("#fieldset2").slideToggle("slow");
+	}
+}
+
+function placeContactMenu(){
+	$("#slidebottom").addClass("slide-hidden");
+	
+	setTimeout("placeContactMenuWithDelay();", 400);
+}
+
+function placeContactMenuWithDelay(){
+	if ($("#menu_bar_1").hasClass("menu-open")) {
+		$("#slidebottom").removeClass();
+		$("#slidebottom").addClass("slide1");
+		action = constant.ACTION_SHARE;
+	}else if ($("#menu_bar_2").hasClass("menu-open")) {
+		$("#slidebottom").removeClass();
+		$("#slidebottom").addClass("slide2");
+		action = constant.ACTION_COMPOSE;
+	}else{
+		$("#slidebottom").addClass("slide-hidden");
+	}
+}
+
+/**
+ * Warning : Should append instead of erasing. TBD when multiple destination will be supported. 
+ * @param phoneNumber
+ */
+function fillDestination(phoneNumber){
+	if(action == constant.ACTION_SHARE){
+		$("#destination1").val(phoneNumber);
+	}else{
+		$("#destination2").val(phoneNumber);
+	}
+}
 
 /**
  * Get "default action" preference from localStorage.
- * The default action will used to determine which form to open by default when opening smshare popup.
+ * The default action determine which form to open by default when opening smshare popup.
  */
 function restoreOption() {
 	var options = new Object();
@@ -541,15 +562,26 @@ function restoreOption() {
 }
 
 
-function toggleSig1(fast) {
-	// $("#sig1").toggleClass("menu-open");
-	$("#smshareMenu").toggleClass("menu-open");
-	if (fast) {
-		$("fieldset#share_menu_fieldset1").toggle();
-	} else {
-		$("fieldset#share_menu_fieldset1").slideToggle("slow");
-	}
 
+/**
+ * Get tiny url
+ * http://james.padolsey.com/javascript/create-a-tinyurl-with-jsonp/
+ */
+function getTinyURL(longURL, success) {
+
+	var API = 'http://json-tinyurl.appspot.com/?url='
+	var URL = API + encodeURIComponent(longURL) + '&callback=?';
+
+	$.getJSON(URL, function(data) {
+		success && success(data.tinyurl);
+	});
+
+}
+
+/**
+ * Met l'url de la page courante (après raccourcissement) dans le inputText  
+ */
+function putPageUrlInMessageBox(){
 	var textL = $('#lien').val();
 	if (textL == null || textL == "" || textL.length == 0) {
 		// mettre le lien dans le input :
@@ -560,37 +592,7 @@ function toggleSig1(fast) {
 			});
 		});
 	}
-
 }
-
-function toggleSig2(fast) {
-	
-	// $("#sig2").toggleClass("menu-open");
-	$("#smshareMenu2").toggleClass("menu-open");
-	if (fast) {
-		$("fieldset#share_menu_fieldset2").toggle();
-	} else {
-		$("fieldset#share_menu_fieldset2").slideToggle("slow");
-	}
-}
-
-
-
-/**
- * Get tiny url
- * http://james.padolsey.com/javascript/create-a-tinyurl-with-jsonp/
- */
-function getTinyURL(longURL, success) {
-
-	var API = 'http://json-tinyurl.appspot.com/?url=', URL = API
-			+ encodeURIComponent(longURL) + '&callback=?';
-
-	$.getJSON(URL, function(data) {
-		success && success(data.tinyurl);
-	});
-
-}
-
 
 /**
  * translate each text to the browser language
@@ -598,9 +600,9 @@ function getTinyURL(longURL, success) {
 function translate(){
 	$("#deconnex").html(chrome.i18n.getMessage("deconnex"));
 	$("#sig1 > span").html(chrome.i18n.getMessage("shareLink"));
-	$("label[for=destination]").html(chrome.i18n.getMessage("destinationLabel"));
+	$("label[for=destination1]").html(chrome.i18n.getMessage("destinationLabel"));
 	$("#imgD").attr("title",chrome.i18n.getMessage("destinationWarning"));
-	$("#destination").attr("title",	chrome.i18n.getMessage("destinationLabel"));
+	$("#destination1").attr("title",	chrome.i18n.getMessage("destinationLabel"));
 	$("label[for=lien]").html(chrome.i18n.getMessage("lienLabel"));
 	$("#imgL").attr("title",chrome.i18n.getMessage("lienWarning"));
 	$("input[type=submit]").attr("value",chrome.i18n.getMessage("submit"));
@@ -608,6 +610,6 @@ function translate(){
 	$("#sig2 > span").html(chrome.i18n.getMessage("composeSMS"));
 	$("label[for=destination2]").html(chrome.i18n.getMessage("destinationLabel"));
 	$("#imgD2").attr("title",chrome.i18n.getMessage("destinationWarning"));
-	$("#destination").attr("title",chrome.i18n.getMessage("destinationLabel"));
+	$("#destination2").attr("title",chrome.i18n.getMessage("destinationLabel"));
 	$("#imgM").attr("title",chrome.i18n.getMessage("lienWarning"));
 }

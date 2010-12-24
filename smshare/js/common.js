@@ -57,7 +57,10 @@ var constant = {
 		CLIENT_DISCONNECTED_BADGE : '!',
 		CLIENT_DISCONNECTED_TOOLTIP : chrome.i18n.getMessage("clientDisconnected"),
 		CLIENT_NOT_FOUND_TOOLTIP : chrome.i18n.getMessage("clientNotFound"),
-		NORMAL_TOOLTIP : 'Smshare'
+		NORMAL_TOOLTIP : 'Smshare',
+		
+		ACTION_SHARE : 'share',
+		ACTION_COMPOSE : 'compose'
 };
 
 
@@ -72,6 +75,29 @@ function log(message) {
 	}
 }
 
+
+function enableTooltip(){ 
+	// select all desired input fields and attach tooltips to them
+	$(".img4validation").tooltip({
+	
+		// place tooltip on the right edge
+		position : "center right",
+	
+		// a little tweaking of the position : vertical , horizontal
+		offset : [ 0, 10 ],
+	
+		// use the built-in fadeIn/fadeOut effect
+		effect : "fade",
+	
+		// custom opacity setting
+		opacity : 0.7,
+	
+		// use this single tooltip element
+		tip : '.tooltip'
+	
+	});
+
+}
 
 
 /**

@@ -3,6 +3,7 @@ body {
 	/*overflow-x: hidden;*/
 	/*reda*/
 	overflow: hidden;
+	height: 600px; /* fix for mac */
 }
 
 #parent{
@@ -27,19 +28,39 @@ img {
 /* * * * * * * * * * * * * * * */
 /* * * *  Contact  menu  * * * */
 
-.slide{
+.slide1{
   position: relative;
-  left: 149px;
-  top: 36px;
-	
+  left: 80px;
+  top: 128px;	
+}
+.slide2{
+  position: relative;
+  left: 80px;
+  top: 176px;
 }
 
- #inner1, #inner2{
+.slide-hidden{
+  position: relative;
+  left: -8888px;
+}
+
+#slidebottom{
+font-size:12px;	
+}
+
+/*
+.inner1, .inner2{
  	position: absolute;
 	top:-20px; 	
 	left:-81px;
  } 
-
+*/
+.inner{
+ 	position: absolute;
+	top:-36px; 	
+	left:49px;
+ } 
+ 
 .contact-button-loading{
 	float: right; margin-right: 158px; margin-top: -55px;
 }
@@ -48,15 +69,18 @@ img {
 	width:36px;
 	margin-right: 149px;
 }
+
+/* * * *  Contact  menu  * * * */
+/* * * * * * * * * * * * * * * */
  
-#topnav,#smshareMenu, #smshareMenu2 {
+#menu_bar_1, #menu_bar_2 {
 	font-size:11px;
 	line-height:23px;
 	margin-top:25px;
 	padding:10px 0px 12px;
 	text-align:right;
 }
-#smshareMenu, #smshareMenu2{
+#menu_bar_1, #menu_bar_2{
 	/*background:#88BBD4 url(images/toggle_down_light.png) no-repeat scroll 98% 46%;*/
 	background-color:#88BBD4;
 	background-image: url(../images/toggle_down_light.png);
@@ -72,16 +96,17 @@ img {
 	-webkit-border-top-right-radius:4px;
 	-webkit-border-bottom-left-radius:4px;
 }
-#topnav:hover,#smshareMenu:hover ,#smshareMenu2:hover{
+
+#menu_bar_1:hover, #menu_bar_2:hover{
 	/*background:#59B url(../images/toggle_down_light.png) no-repeat scroll 98% 46%;;*/
 	background-color:#59B;
+	cursor: pointer;
 }
 
-
-
- #topnav a.signin, #smshareMenu a.signin,#smshareMenu2 a.signin {
+a.signin {
 	background:#88bbd4;
-	padding:4px 6px 6px;
+	/*padding:4px 6px 6px;*/
+	padding:4px 33px 6px 6px;
 	text-decoration:none;
 	font-weight:bold;
 	color:#fff ;
@@ -90,35 +115,19 @@ img {
 	-webkit-border-bottom-left-radius:4px;
 	outline: none;
 }
- #smshareMenu a.signin,#smshareMenu2 a.signin {
+ #menu_bar_1 a.signin,#menu_bar_2 a.signin {
  	background: transparent;
  }
  
- /*Pour que le menu soit cliquable jusqu'au bout*/
- #smshareMenu a.signin{
- 	padding-right: 25px;
- }
- 
-/* 
-#topnav a.signin:hover,#smshareMenu a.signin:hover ,#smshareMenu2 a.signin:hover{
-	background:#59B;
-}
-*/
-
 a.signin span{
-	/*background-image:url("../images/toggle_down_light.png");
-	background-repeat:no-repeat;
-	background-position:100% 50%;*/
 	padding:4px 16px 6px 0;
 }
 
-#smshareMenu a.signin span,#smshareMenu2 a.signin span {
-	/*padding:4px 250px 6px 0;*/
+#menu_bar_1 a.signin span,#menu_bar_2 a.signin span {
 	padding:4px 156px 6px 0;
 }
 
-/*#topnav a.menu-open, #smshareMenu a.menu-open, #smshareMenu2 a.menu-open  {*/
-#topnav a.menu-open, #smshareMenu.menu-open, #smshareMenu2.menu-open  {
+#menu_bar_1.menu-open, #menu_bar_2.menu-open  {
 	-webkit-border-bottom-left-radius:0px;
 	-webkit-border-bottom-right-radius:0px;
 	
@@ -129,20 +138,16 @@ a.signin span{
 
 
 
-#topnav a.signin.menu-open span {
-	background-image:url("../images/toggle_up_dark.png");
-	color:#789;
-}
-#smshareMenu.menu-open, #smshareMenu2.menu-open {
+#menu_bar_1.menu-open, #menu_bar_2.menu-open {
 	background-image:url("../images/toggle_up_dark.png");
 }
 
-#smshareMenu.menu-open span, #smshareMenu2.menu-open span{
+#menu_bar_1.menu-open span, #menu_bar_2.menu-open span{
 	color:#789;
 }
 
 
-#signin_menu,#share_menu_fieldset1,#share_menu_fieldset2{
+#signin_menu,#fieldset1,#fieldset2{
 	-webkit-border-bottom-left-radius:5px;
 	-webkit-border-bottom-right-radius:5px;
 	background-color:#ddeef6;
@@ -159,7 +164,7 @@ a.signin span{
 }
 
 
-#share_menu_fieldset1,#share_menu_fieldset2{
+#fieldset1,#fieldset2{
 	/*casse les contacts, si tu remets il faut sortir les contact du fieldset*/
 	/*display:none;*/
 	-webkit-border-bottom-left-radius:5px;
@@ -170,8 +175,8 @@ a.signin span{
 
 /*Comme dans register , ce #signin_menu doit etre remplacer par .myFieldSet ici, et dans l'html en bas.*/
 #signin_menu input[type=text],#signin_menu textarea,#signin_menu input[type=password],
-#share_menu_fieldset1 input[type=text],#share_menu_fieldset1 textarea,#share_menu_fieldset1 input[type=password], 
-#share_menu_fieldset2 input[type=text],#share_menu_fieldset2 textarea,#share_menu_fieldset2 input[type=password] {
+#fieldset1 input[type=text],#fieldset1 textarea,#fieldset1 input[type=password], 
+#fieldset2 input[type=text],#fieldset2 textarea,#fieldset2 input[type=password] {
 	display:block;
 	-webkit-border-radius:4px;
 	border:1px solid #ACE;
@@ -182,25 +187,25 @@ a.signin span{
 	width:100%;
 }
 
-#signin_menu p , #share_menu_fieldset1 p, #share_menu_fieldset2 p{
+#signin_menu p , #fieldset1 p, #fieldset2 p{
 	margin:0;
 }
-#signin_menu a, #share_menu_fieldset1 a, #share_menu_fieldset2 a {
+#signin_menu a, #fieldset1 a, #fieldset2 a {
 	color:#6AC;
 }
-#signin_menu label , #share_menu_fieldset1 label , #share_menu_fieldset2 label {
+#signin_menu label , #fieldset1 label , #fieldset2 label {
 	float:left;/*pour que les warning se mettent à droite*/
 	font-weight:normal;
 	margin-right: 5px;
 }
-#signin_menu p.remember , #share_menu_fieldset1 #signin_menu p.remember, #share_menu_fieldset2 #signin_menu p.remember{
+#signin_menu p.remember , #fieldset1 #signin_menu p.remember, #fieldset2 #signin_menu p.remember{
 	padding:10px 0;
 }
-#signin_menu p.forgot, #signin_menu p.complete, #share_menu_fieldset1 p.forgot, #share_menu_fieldset1 p.complete,#share_menu_fieldset2 p.forgot, #share_menu_fieldset2 p.complete{
+#signin_menu p.forgot, #signin_menu p.complete, #fieldset1 p.forgot, #fieldset1 p.complete,#fieldset2 p.forgot, #fieldset2 p.complete{
 	clear:both;
 	margin:5px 0;
 }
-#signin_menu p a, #share_menu_fieldset1 p a, #share_menu_fieldset2 p a{
+#signin_menu p a, #fieldset1 p a, #fieldset2 p a{
 	color:#27B!important;
 }
 
