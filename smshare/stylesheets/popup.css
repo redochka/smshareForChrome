@@ -173,7 +173,7 @@ a.signin span{
 
 
 
-/*Comme dans register , ce #signin_menu doit etre remplacer par .myFieldSet ici, et dans l'html en bas.*/
+/*Comme dans register , ce #signin_menu doit être remplacer par .myFieldSet ici, et dans l'html en bas.*/
 #signin_menu input[type=text],#signin_menu textarea,#signin_menu input[type=password],
 #fieldset1 input[type=text],#fieldset1 textarea,#fieldset1 input[type=password], 
 #fieldset2 input[type=text],#fieldset2 textarea,#fieldset2 input[type=password] {

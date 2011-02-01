@@ -356,7 +356,8 @@ $(function() { // JQUERY ON LOAD
 	placeContactMenu();
 	
 	//menu ipod js
-	setTimeout("setContactMenuContent()",600);
+//	setTimeout("setContactMenuContent()",600);
+	setTimeout("setContactMenuContent()",500);
 	
 	// L A N G U A G E 
 	translate();
