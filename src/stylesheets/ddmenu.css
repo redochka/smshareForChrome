@@ -2,7 +2,8 @@
 
 .bdc-dd-menu {
 	width: 200px;
-	height: 150px;
+	/*height: 150px;*/
+	height: 171px;
 	margin: 0;
 	padding: 0;
 	border: 1px solid #8FBE44;
@@ -22,8 +23,10 @@
 	overflow-y: auto;
 	position: relative;
 	
-	/* Bug fix 17 Nov 2010  -> flèche du bas de l'ascenceur n'apparaissait plus*/
+	/* Bug fix 17 Nov 2010  -> flèche du bas de l'ascenceur n'apparaissait plus
 	height:129 !important;
+	*/
+	height:145px;
 }
 
 .bdc-dd-scroll-up {
