@@ -1,4 +1,4 @@
-/*PRE*/
+/*PRE
 //BACKGROUND
 var CHECK_CLIENT_STATUS_SERVICE_URL = "http://192.168.14.14:8084/service/checkstatus";
 
@@ -14,13 +14,13 @@ var CONTACTS_US_PAGE_URL = "http://localhost:8084/contact.html#signin_menu";
 
 
 var CHECK_STATUS_DELAY = 500000;// 20 seconds
-
+*/
 var logger = true;
  
 
 
 
-/*PROD
+/*PROD*/
 //BACKGROUND
 var CHECK_CLIENT_STATUS_SERVICE_URL = "http://www.smshare.fr/service/checkstatus";  
 
@@ -37,8 +37,8 @@ var CONTACTS_US_PAGE_URL = "http://www.smshare.fr/contact.html#signin_menu";
 
 var CHECK_STATUS_DELAY = 300000; //5 minutes a diminuer
 
-var logger = false;
-*/
+//var logger = false;
+
 
 
 
