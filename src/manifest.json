@@ -2,22 +2,22 @@
 
   "name": "Smshare - SMS : Short Message Share",
 
-  "version": "1.6",
+  "version": "1.7",
 
   "description": "__MSG_manifestDescription__",
   
   "default_locale" : "en",
   
   "browser_action": {
-    "default_icon": "images/iconT.png",
+    "default_icon": "images/icon.png",
     "popup": "popup.html",
     "default_title" : "Smshare"
    },
    
   "icons": {
-    "48" : "images/icon48T.png",
-    "64" : "images/icon64T.png",
-    "128": "images/icon128T.png"
+    "48" : "images/icon48.png",
+    "64" : "images/icon64.png",
+    "128": "images/icon128.png"
    },
    
   "background_page": "background.html",

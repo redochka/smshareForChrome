@@ -13,7 +13,7 @@
 <body>
 
 
-<img id="logged_in" src="images/icon.png">
+<img id="logged_in" src="images/iconT.png">
 
 <canvas id="canvas" width="19" height="19">
 
