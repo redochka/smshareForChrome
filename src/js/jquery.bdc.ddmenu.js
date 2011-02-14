@@ -173,6 +173,9 @@
 					}
 				});
 			}
+			
+			
+			prepareAC();
 		}
 
 		/*
@@ -441,8 +444,14 @@
 			if (!root) {
 				markup += '<div class="' + opts.titleIconClass + '">&nbsp;</div>';
 				markup += '<div class="' + opts.titleLabelClass + '">' + title + '<span style="float:right;">'+opts.backText+'</span>'+ '</div></div>';
-			}else{
-				markup += '<div class="' + opts.titleLabelClass + '">' + title + '</div></div>';
+			}else{ //1ère fois lorsqu'on ouvre le menu
+				//markup += '<div class="' + opts.titleLabelClass + '">' + title + '</div></div>';
+				
+				//je crée l'input (complétion automatique)
+				var inputCA = '<input type="text" id="completion" class="search" />' ;
+				
+				//j'insère le input
+				markup += '<div class="' + opts.titleLabelClass + '" style="padding:0">' + inputCA + '</div></div>';
 			}
 			panel.prepend(markup);
 
@@ -843,6 +852,39 @@
 		return this;
 	}
 
+	/**
+	 * scroll with : http://flesler.blogspot.com/2007/10/jqueryscrollto.html
+	 */
+	function prepareAC(){
+		//gestion de la completion dans le menu
+		$('#completion').keyup(function(){
+			
+			var text = $(this).val();
+			log("key up : "+text);
+			
+			var spans = $('span.bdc-dd-text').filter(function(){
+					
+				if(this.innerHTML.substr(0,text.length) == text){
+					console.log("found");
+					
+					//this.id = "toto";
+					//$('.bdc-dd-scroll-pane').scrollTo("#toto");
+					//$('.bdc-dd-scroll-pane').scrollTo(this);
+					
+					return true;
+				}else{
+					return false;
+				}
+			});
+
+			//Scroll
+			if(spans.length != 0){ //Check selected result is empty or not
+				$('.bdc-dd-scroll-pane').scrollTo(spans.first(),200);	
+			}
+
+		});
+	}
+	
 	/*
 	 * These are the default values, or more appropriately, the "default default" values. If you have mulriple menus in your page
 	 * and wish to change the default values for any of them, you can do so like this example:

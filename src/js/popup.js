@@ -459,6 +459,7 @@ $(function() { // JQUERY ON LOAD
 	/* * * G E S T I O N   D E   L A   T A I L L E   D E S   S M S * * */
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	
+	
 	$("#menu_bar_1").click(function(e) {
 		toggleSig1();
 		
