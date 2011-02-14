@@ -136,97 +136,102 @@ check on your smartphone that smshare is launched and you've a 3G/WiFi connectio
 
 	"shareLink":			{
 								"message" : "Share this link by sms",
-								"description" : "25"
+								"description" : "p1"
 							},
 					
 	"deconnex":				{
 								"message" : "Sign out",
-								"description" : "26"
+								"description" : "p2"
 							},
 					
 	"destinationLabel":		{
 								"message" : "Destination N° ",
-								"description" : "27"								
+								"description" : "p3"								
 							},
 						
 	"destinationWarning" :	{
 								"message" : "Please, enter your destination number",
-								"description" : "28"								
+								"description" : "p4"								
 						   	},
 						
 	"lienLabel" :			{
 								"message" : "Link ",
-								"description" : "29"																
+								"description" : "p5"																
 							},
 							
 	"lienWarning" :			{
 								"message" : "Your message is empty!",
-								"description" : "30"	
+								"description" : "p6"	
 							},
 							
 	"submit" :				{
 								"message" : "Send",
-								"description" : "31"		
+								"description" : "p7"		
 							},
 							
 	"composeSMS" :			{
 								"message" : "Write a new SMS",
-								"description" : "32"						
+								"description" : "p8"						
 							},			
 							
 	"disconnected" :		{
 								"message" : "You have been disconnected.",
-								"description" : "33"			
+								"description" : "p9"			
 							},							
 
 	"smsSent" :				{
 								"message" : "Your sms will shortly arrive to your smartphone to be sent.",
-								"description" : "34"						
+								"description" : "p10"						
 							},
 							
 	"reconnectionRequired" :{
 								"message" : "You must sign in again before you continue.",
-								"description" : "35"						
+								"description" : "p11"						
 							},
 
 	"restant" :				{
 								"message" : "Left: ",
-								"description" : "36"						
+								"description" : "p12"						
 							},
 
 	"goToOptPage" :			{
 								"message" : "Go to options page",
-								"description" : "p"	
+								"description" : "p13"	
 							},
 							
 	"gmail407" :			{
 								"message" : "Please enter your Gmail credentials in the options page so that smshare can retrieve your contacts",
-								"description" : "p"	
+								"description" : "p14"	
 							},
 							
 	"gmail401" :			{
 								"message" : "Gmail login or password incorrect. Please, check your Gmail credentials in the options page",
-								"description" : "p"	
+								"description" : "p15"
 							},
 							
 	"gmail502" :			{
 								"message" : "Smshare is unable to connect to Gmail. Please, try later",
-								"description" : "p"	
+								"description" : "p16"
 							},
 							
 	"noContactData" :		{
 								"message" : "No contact data is available. You may need to restart your browser",
-								"description" : "p"	
+								"description" : "p17"
 							},
 			
 	"chooseAContact" :		{
 								"message" : "Choose a contact",
-								"description" : "p"	
+								"description" : "p18"	
 							},				
 							
 	"back" :				{
 								"message" : "Back",
-								"description" : "p"	
+								"description" : "p19"
+							},
+											
+	"startTyping" :			{
+								"message" : "Start typing...",
+								"description" : "p20"
 							},				
 	
 							

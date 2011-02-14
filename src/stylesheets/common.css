@@ -48,10 +48,10 @@ a.signin {
 
 
 .search{
-	border: 0px solid #5C9CCC;
+	border: 0px ;
 	color: #898989;
 	/*outline: none; Remove Chrome and Safari glows on focus*/
-	background: white url(../images/search.png) right no-repeat;
-	padding: 9px 47px 0.1px 3px;
+	background: white url(../images/search.png) 117% 59% no-repeat ;
+	padding: 9px 47px 0px 3px;
 	margin: 0px -1px 1px -1px;
 }

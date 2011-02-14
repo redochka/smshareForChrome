@@ -5,7 +5,7 @@
 	height: 150px;
 	margin: 0;
 	padding: 0;
-	border: 1px solid black;
+	border: 1px solid #8FBE44;
 	overflow: hidden;
 }
 
@@ -248,8 +248,8 @@ display:none;
 }
 
 .bdc-dd-title-root {
-	/*background-color: #88BBD4;*/
-	background: #5C9CCC url(../images/bg_gloss-wave_500x100.png) repeat-x 50% 50%;
+	background-color: #8FBE44;
+	/*background: #5C9CCC url(../images/bg_gloss-wave_500x100.png) repeat-x 50% 50%;*/
 	
 	color: white;
 	font-weight: bold;

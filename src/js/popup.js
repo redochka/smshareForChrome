@@ -14,6 +14,7 @@
 //GLOBAL VARIABLE :
 
 var leftLabel = chrome.i18n.getMessage('restant');
+var _startTyping = chrome.i18n.getMessage('startTyping');
 
 var bgPage = chrome.extension.getBackgroundPage();
 
@@ -30,7 +31,10 @@ function setContactMenuContent(){
 	$("#nav").html(menuContent.ul);
 
 	if(menuContent.backText){
-		$('#nav > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250, backText:menuContent.backText});
+		$('#nav > ul').ddMenu({rootTitle: menuContent.rootTitle, 
+							   duration: 250, 
+							   backText:menuContent.backText,
+							   startTypingText:_startTyping});
 	}else{
 		$('#nav > ul').ddMenu({rootTitle: menuContent.rootTitle, duration: 250});
 	}
@@ -356,7 +360,6 @@ $(function() { // JQUERY ON LOAD
 	placeContactMenu();
 	
 	//menu ipod js
-//	setTimeout("setContactMenuContent()",600);
 	setTimeout("setContactMenuContent()",500);
 	
 	// L A N G U A G E 

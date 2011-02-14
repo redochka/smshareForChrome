@@ -229,6 +229,10 @@ vérifiez qu'elle est bien lancée et que votre téléphone dispose d'une connex
 								"description" : "p"	
 							},							
 							
+	"startTyping" :			{
+								"message" : "Commencez à écrire ...",
+								"description" : "p20"
+							},
 							
 							
 	"changeSaved" : 		{

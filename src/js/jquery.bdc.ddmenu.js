@@ -444,13 +444,13 @@
 			if (!root) {
 				markup += '<div class="' + opts.titleIconClass + '">&nbsp;</div>';
 				markup += '<div class="' + opts.titleLabelClass + '">' + title + '<span style="float:right;">'+opts.backText+'</span>'+ '</div></div>';
-			}else{ //1ère fois lorsqu'on ouvre le menu
+			}else{ //1ï¿½re fois lorsqu'on ouvre le menu
 				//markup += '<div class="' + opts.titleLabelClass + '">' + title + '</div></div>';
 				
-				//je crée l'input (complétion automatique)
+				//je crï¿½e l'input (complï¿½tion automatique)
 				var inputCA = '<input type="text" id="completion" class="search" />' ;
 				
-				//j'insère le input
+				//j'insï¿½re le input
 				markup += '<div class="' + opts.titleLabelClass + '" style="padding:0">' + inputCA + '</div></div>';
 			}
 			panel.prepend(markup);
@@ -847,43 +847,63 @@
 			}
 			return 0;
 		}
+		
+		/**
+		 * prepareAutoComplete
+		 * scroll with : http://flesler.blogspot.com/2007/10/jqueryscrollto.html
+		 */
+		function prepareAC(){
+			//init
+			$('#completion').val(opts.startTypingText);
+			
+			//gestion de la completion dans le menu
+			$('#completion').keyup(function(){
+				
+				var currText = $(this).val();
+				
+				var contactSpans = $('span.bdc-dd-text').filter(function(){
+						
+					if(this.innerHTML.substr(0, currText.length) == currText){
+						return true;
+					}else{
+						return false;
+					}
+				});
 
+				//Scroll
+				if(contactSpans.length != 0){ //Check selected result is empty or not
+					$('.bdc-dd-scroll-pane').scrollTo(contactSpans.first(),200);	
+				}
+
+			});
+			
+			$('#completion').focus(function(){
+				var currText = $(this).val();
+				if(currText.length == 0){
+					$(this).val(opts.startTypingText);
+				}
+				else if (currText == opts.startTypingText){
+					$(this).val("");
+				} 
+			});
+			
+			$('#completion').blur(function(){
+				var currText = $(this).val();
+				if(currText.length == 0){
+					$(this).val(opts.startTypingText);
+				}
+			});
+		}
+		
+		
+		//S C R I P T   I N I T 
 		init();
 		return this;
 	}
 
-	/**
-	 * scroll with : http://flesler.blogspot.com/2007/10/jqueryscrollto.html
-	 */
-	function prepareAC(){
-		//gestion de la completion dans le menu
-		$('#completion').keyup(function(){
-			
-			var text = $(this).val();
-			log("key up : "+text);
-			
-			var spans = $('span.bdc-dd-text').filter(function(){
-					
-				if(this.innerHTML.substr(0,text.length) == text){
-					console.log("found");
-					
-					//this.id = "toto";
-					//$('.bdc-dd-scroll-pane').scrollTo("#toto");
-					//$('.bdc-dd-scroll-pane').scrollTo(this);
-					
-					return true;
-				}else{
-					return false;
-				}
-			});
-
-			//Scroll
-			if(spans.length != 0){ //Check selected result is empty or not
-				$('.bdc-dd-scroll-pane').scrollTo(spans.first(),200);	
-			}
-
-		});
-	}
+	
+	
+	
 	
 	/*
 	 * These are the default values, or more appropriately, the "default default" values. If you have mulriple menus in your page
@@ -944,8 +964,10 @@
 		textHoverClass: 'bdc-dd-text-hover',			// the CSS class for the label text when it's hovered over (used ONLY in
 														// split branches).
 		iconClass: 'bdc-dd-icon', 						// the CSS class for the icon to appear next to the label (if necessary).
-		iconHoverClass: 'bdc-dd-icon-hover'				// the CSS class for the icon when it's hovered over (used ONLY in split
+		iconHoverClass: 'bdc-dd-icon-hover',			// the CSS class for the icon when it's hovered over (used ONLY in split
 														// branches).
+			
+		startTypingText: 'Start typing...'
 	};
 
 })(jQuery);
