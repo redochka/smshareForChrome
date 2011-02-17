@@ -145,7 +145,7 @@ check on your smartphone that smshare is launched and you've a 3G/WiFi connectio
 							},
 					
 	"destinationLabel":		{
-								"message" : "Destination N° ",
+								"message" : "Destination N° (Comma-separated)",
 								"description" : "p3"								
 							},
 						

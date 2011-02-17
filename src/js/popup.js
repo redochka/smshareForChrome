@@ -563,14 +563,22 @@ function placeContactMenuWithDelay(){
  * @param phoneNumber
  */
 function fillDestination(phoneNumber){
+	var dest;
 	if(action == constant.ACTION_SHARE){
-		$("#destination1").val(phoneNumber);
-		localStorage["destination1"] = phoneNumber; 
+		 dest = 'destination1';
 	}else{
-		$("#destination2").val(phoneNumber);
-		localStorage["destination2"] = phoneNumber;
+		 dest = 'destination2';
 	}
+	
+	var oldTest = $("#"+dest).val();
+	if(oldTest && jQuery.trim(oldTest).length > 0){
+		$("#"+dest).val(oldTest+", "+phoneNumber);	
+	}else{
+		$("#"+dest).val(phoneNumber);
+	}
+	localStorage[dest] = $("#"+dest).val();
 }
+
 
 function restorePopupStatus(){
 	var dest1 = localStorage["destination1"];
