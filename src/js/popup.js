@@ -346,15 +346,7 @@ $(function() { // JQUERY ON LOAD
 	$("#fieldset2").hide();
 
 	//restore backuped text :
-	savedLink = localStorage["lien"];
-	if(savedLink){
-		$('#lien').val(savedLink);	
-	}
-	
-	savedMsg = localStorage["message"];
-	if(savedMsg){
-		$('#message').val(savedMsg);	
-	}
+	restorePopupStatus();
 	
 	
 	//Which form (fieldset) to show :
@@ -478,12 +470,16 @@ $(function() { // JQUERY ON LOAD
 				//Math.floor(nbMsg)+1
 				$(this).next().text(left+' : '+nbMsg);
 				
-				console.log("$(this).id = "+this.id);
+				log("this.id = "+this.id);
 				localStorage[this.id] = $(this).val();
 			});
 	
 	/* * * G E S T I O N   D E   L A   T A I L L E   D E S   S M S * * */
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	
+	$("#destination1, #destination2").keyup(function(){
+		localStorage[this.id] = $(this).val();
+	});
 	
 	
 	$("#menu_bar_1").click(function(e) {
@@ -569,10 +565,35 @@ function placeContactMenuWithDelay(){
 function fillDestination(phoneNumber){
 	if(action == constant.ACTION_SHARE){
 		$("#destination1").val(phoneNumber);
+		localStorage["destination1"] = phoneNumber; 
 	}else{
 		$("#destination2").val(phoneNumber);
+		localStorage["destination2"] = phoneNumber;
 	}
 }
+
+function restorePopupStatus(){
+	var dest1 = localStorage["destination1"];
+	if(dest1){
+		$('#destination1').val(dest1);	
+	}
+	
+	var savedLink = localStorage["lien"];
+	if(savedLink){
+		$('#lien').val(savedLink);	
+	}
+	
+	var dest2 = localStorage["destination2"];
+	if(dest2){
+		$('#destination2').val(dest2);	
+	}
+	
+	savedMsg = localStorage["message"];
+	if(savedMsg){
+		$('#message').val(savedMsg);	
+	}
+}
+
 
 /**
  * Get "default action" preference from localStorage.
@@ -592,10 +613,14 @@ function restoreOption() {
 	return options;
 }
 
+
 function resetBackupedText(){
 	localStorage["lien"] = "";
 	localStorage["message"] = "";
+	localStorage["destination1"] = "";
+	localStorage["destination2"] = "";
 }
+
 
 /**
  * Get tiny url
