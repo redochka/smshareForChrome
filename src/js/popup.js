@@ -344,6 +344,17 @@ $(function() { // JQUERY ON LOAD
 	//Éviter le display none sur le menu avant sa fabrication. sinon les propriété css seront effacées et le dd menu verra height == 0 sur le deuxième menu
 	$("#fieldset1").hide();
 	$("#fieldset2").hide();
+
+	//restore backuped text :
+	savedLink = localStorage["lien"];
+	if(savedLink){
+		$('#lien').val(savedLink);	
+	}
+	
+	savedMsg = localStorage["message"];
+	if(savedMsg){
+		$('#message').val(savedMsg);	
+	}
 	
 	
 	//Which form (fieldset) to show :
@@ -398,7 +409,11 @@ $(function() { // JQUERY ON LOAD
 							return false;
 						}
 						// VALIDATION with success
+
 						partager("signinForm");
+						
+						resetBackupedText();
+						
 						e.preventDefault();
 	
 					});
@@ -419,7 +434,12 @@ $(function() { // JQUERY ON LOAD
 							$('#imgM').show();
 							return false;
 						}
+
 						partager("newSmsForm");
+						
+						//reset backuped text
+						resetBackupedText();
+						
 						e.preventDefault();
 					});
 	
@@ -457,6 +477,9 @@ $(function() { // JQUERY ON LOAD
 				var nbMsg = Math.floor($(this).val().length / 161) + 1;
 				//Math.floor(nbMsg)+1
 				$(this).next().text(left+' : '+nbMsg);
+				
+				console.log("$(this).id = "+this.id);
+				localStorage[this.id] = $(this).val();
 			});
 	
 	/* * * G E S T I O N   D E   L A   T A I L L E   D E S   S M S * * */
@@ -472,6 +495,7 @@ $(function() { // JQUERY ON LOAD
 		}
 		
 		placeContactMenu();
+		localStorage["defaultAction"] = constant.ACTION_SHARE;
 		e.preventDefault();
 	});
 	
@@ -483,6 +507,7 @@ $(function() { // JQUERY ON LOAD
 		}
 		
 		placeContactMenu();
+		localStorage["defaultAction"] = constant.ACTION_COMPOSE;
 		e.preventDefault();
 	});
 	
@@ -493,7 +518,7 @@ $(function() { // JQUERY ON LOAD
 });// Fin de jquery onLoad
 
 
-
+var firstTimeOpenLinkForm = true;
 function toggleSig1(fast) {
 	$("#menu_bar_1").toggleClass("menu-open");
 	if (fast) {
@@ -502,8 +527,9 @@ function toggleSig1(fast) {
 		$("#fieldset1").slideToggle("slow");
 	}
 	
-	if ($("#menu_bar_1").hasClass("menu-open")) {
+	if (firstTimeOpenLinkForm && $("#menu_bar_1").hasClass("menu-open")) {
 		putPageUrlInMessageBox();
+		firstTimeOpenLinkForm = false;
 	}
 }
 
@@ -566,7 +592,10 @@ function restoreOption() {
 	return options;
 }
 
-
+function resetBackupedText(){
+	localStorage["lien"] = "";
+	localStorage["message"] = "";
+}
 
 /**
  * Get tiny url
@@ -588,15 +617,19 @@ function getTinyURL(longURL, success) {
  */
 function putPageUrlInMessageBox(){
 	var textL = $('#lien').val();
-	if (textL == null || textL == "" || textL.length == 0) {
-		// mettre le lien dans le input :
-		chrome.tabs.getSelected(null, function(tab) {
-			getTinyURL(tab.url, function(tinyurl) {
-				// Do something with tinyurl:
-				$('#lien').val(tinyurl);
-			});
+	
+	// mettre le lien dans le input :
+	chrome.tabs.getSelected(null, function(tab) {
+		getTinyURL(tab.url, function(tinyurl) { // Do something with tinyurl:
+			if(textL && textL.length > 0){
+				$('#lien').val(tinyurl + "\n" + textL);
+			}else{
+				$('#lien').val(tinyurl);	
+			}
+			
 		});
-	}
+	});
+	
 }
 
 /**

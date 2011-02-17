@@ -246,21 +246,6 @@ check on your smartphone that smshare is launched and you've a 3G/WiFi connectio
 								"description" : "o2"
 							},
 							
-	"defaultFormOpts" : 	{
-								"message" : "Choose the default form to be shown when you open smshare :",
-								"description" : "o3"
-							},
-							
-	"defaultFormOpt_share" :{
-								"message" : "Open the share link form for the current page (Default option)",
-								"description" : "o4"
-							},									
-
-	"defaultFormOpt_compose":{
-								"message" : "Open the Compose new sms form",
-								"description" : "o5"
-							},
-							
 	"saveBtn":				{
 								"message" : "Save",
 								"description" : "o6"
