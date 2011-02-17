@@ -8,10 +8,6 @@ $(function() {
 	/* L A N G U A G E */
 	translate();
 
-	// Restorer les options pour l'affichage:
-	var options = restore_options();
-	document.getElementById(options.defaultAction).checked = true;
-
 	// Update GMAIL form with credential retrieved from the server 
 	// The first parameter is accessible in the callback function by keyword this, second param here is the first param there. 
 	readUser(updateGmailForm);
@@ -66,9 +62,6 @@ function postGmailCredentialsCallback(rep) {
 	log("status : " + rep);
 	
 	if (rep == "200") {
-		//Pas terrible le save ici, faudrait peut être faire deux boutons enregistré ? Ou enregistrer les options à la volée ?
-		saveOptions();
-		
 		//update local contacts data
 		//TODO : implement callback here, to show success message once contacts retrieved.
 		bkPage.getGoogleContacts();
@@ -80,21 +73,6 @@ function postGmailCredentialsCallback(rep) {
 		showNotification("status", chrome.i18n.getMessage('changeNotSaved'));
 	}
 
-}
-
-/**
- * Saves options to localStorage.
- */
-function saveOptions() {
-	// http://blog.geekfg.net/2009/03/gerer-les-elements-input-radio-avec.html
-	var selectedRadio = $('input[type=radio][name=defaultAction]:checked').attr('value');
-	localStorage["defaultAction"] = selectedRadio;
-
-	/*
-	 * var select = document.getElementById("color"); var color =
-	 * select.children[select.selectedIndex].value;
-	 * localStorage["favorite_color"] = color;
-	 */
 }
 
 /**
@@ -125,28 +103,6 @@ function showSimpleNotification(id, message) {
 }
 
 
-
-/**
- * Restores select box state to saved value from localStorage.
- */
-function restore_options() {
-
-	var options = new Object();
-
-	var favorite = localStorage["defaultAction"];
-	if (!favorite) {
-		// share is defaultAction
-		options.defaultAction = "share";
-	} else {
-		options.defaultAction = favorite;
-	}
-	return options;
-	/*
-	 * var select = document.getElementById("color"); for (var i = 0; i <
-	 * select.children.length; i++) { var child = select.children[i]; if
-	 * (child.value == favorite) { child.selected = "true"; break; } }
-	 */
-}
 
 /**
  * http://blog.springsource.com/2010/01/25/ajax-simplifications-in-spring-3-0/
@@ -180,16 +136,13 @@ function updateGmailForm() {
 			$("#gmailEmail").val(gmailCredentials.gmailEmail);
 			$("#gmailPasswd").val(gmailCredentials.gmailPasswd);
 		} else {
-			console.log("walou");
+			log("walou");
 		}
 	});
 }
 
 function translate(){
-	$("#logo").attr("title",chrome.i18n.getMessage("visitUs"));
-	$("#optionsForm > p:first").html(chrome.i18n.getMessage("defaultFormOpts"));
-	$("label[for=share]").html(chrome.i18n.getMessage("defaultFormOpt_share"));
-	$("label[for=compose]").html(chrome.i18n.getMessage("defaultFormOpt_compose"));
+	$("#logo").attr("title",chrome.i18n.getMessage("visitUs"));	
 	$("#p_credentials").html(chrome.i18n.getMessage("p_credentials"));
 	$("#gmailEmailLabel").html(chrome.i18n.getMessage("gmailEmailLabel"));
 	$("#gmailPasswdLabel").html(chrome.i18n.getMessage("gmailPasswdLabel"));

@@ -245,21 +245,6 @@ vérifiez qu'elle est bien lancée et que votre téléphone dispose d'une connex
 								"description" : "o2"
 							},
 							
-	"defaultFormOpts" : 	{
-								"message" : "Spécifiez le formulaire par défaut qui s'affichera lorsque vous ouvrez smshare :",
-								"description" : "o3"
-							},
-							
-	"defaultFormOpt_share" :{
-								"message" : "Ouvrir le formulaire pour le partage de lien de la page en cours (Choix par défaut)",
-								"description" : "o4"
-							},									
-
-	"defaultFormOpt_compose":{
-								"message" : "Ouvrir le formulaire pour composer un nouveau sms",
-								"description" : "o5"
-							},
-							
 	"saveBtn":				{
 								"message" : "Enregistrer",
 								"description" : "o6"

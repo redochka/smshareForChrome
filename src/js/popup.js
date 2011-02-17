@@ -495,6 +495,7 @@ $(function() { // JQUERY ON LOAD
 		}
 		
 		placeContactMenu();
+		localStorage["defaultAction"] = constant.ACTION_SHARE;
 		e.preventDefault();
 	});
 	
@@ -506,6 +507,7 @@ $(function() { // JQUERY ON LOAD
 		}
 		
 		placeContactMenu();
+		localStorage["defaultAction"] = constant.ACTION_COMPOSE;
 		e.preventDefault();
 	});
 	
