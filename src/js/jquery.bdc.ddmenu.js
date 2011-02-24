@@ -895,7 +895,9 @@
 			});
 		}
 		
-		 		 
+		/**
+		 * Make sure to set the doc encoding to UTF8!
+		 */
 		accentsTidy = function(s){
 			//var reg = /[èéêë]/g;
 			var r=s.toLowerCase();
