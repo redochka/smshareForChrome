@@ -860,10 +860,10 @@
 			$('#completion').keyup(function(){
 				
 				var currText = $(this).val();
+				currText = accentsTidy(currText);
 				
 				var contactSpans = $('span.bdc-dd-text').filter(function(){
-						
-					if(this.innerHTML.substr(0, currText.length) == currText){
+					if(accentsTidy(this.innerHTML).substr(0, currText.length) == currText){
 						return true;
 					}else{
 						return false;
@@ -894,6 +894,25 @@
 				}
 			});
 		}
+		
+		 		 
+		accentsTidy = function(s){
+			//var reg = /[èéêë]/g;
+			var r=s.toLowerCase();
+            r = r.replace(new RegExp("\\s", 'g'),"");
+            r = r.replace(new RegExp("[àáâãäå]", 'g'),"a");
+            r = r.replace(new RegExp("æ", 'g'),"ae");
+            r = r.replace(new RegExp("ç", 'g'),"c");
+            r = r.replace(new RegExp("[èéêë]", 'g'),"e");
+            r = r.replace(new RegExp("[ìíîï]", 'g'),"i");
+            r = r.replace(new RegExp("ñ", 'g'),"n");                            
+            r = r.replace(new RegExp("[òóôõö]", 'g'),"o");
+            r = r.replace(new RegExp("œ", 'g'),"oe");
+            r = r.replace(new RegExp("[ùúûü]", 'g'),"u");
+            r = r.replace(new RegExp("[ýÿ]", 'g'),"y");
+            r = r.replace(new RegExp("\\W", 'g'),"");
+            return r;
+		};
 		
 		
 		//S C R I P T   I N I T 
