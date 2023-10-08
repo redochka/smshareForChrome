@@ -190,9 +190,12 @@ function addErrorBehavior(page){
 
 
 
+// 
 
-
+</**********************
+ 
 //NOT USED : A VIRER APRES http://forum.springsource.org/showthread.php?p=321061#post321061
+
 function getGoogleContacts2(user){
 	
 	var req = new XMLHttpRequest();
@@ -235,7 +238,7 @@ function getGoogleContactsCB()
 
 
 
-
+********/>
 
 
 
